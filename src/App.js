@@ -21,7 +21,7 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <Person name="zakky" age="21"/>
+      <Person name="zakky" age="21"> my hobbi is<span className="warna" > coding</span></Person>
       <Person name="andi" age="22" > my hobby adalah:reading</Person>
       <Person name="budi" age="23"/>
      

@@ -1,12 +1,13 @@
 
 import React,{Component} from 'react';
 import '../App.css';
-const Person = (props) =>{
+const Person = (propss) =>{
     return (
-        <div className="warna">
+        <div className="App">
              {/* <p>hello ini adalah nilai random {Math.floor(Math.random() * 20)}</p> */}
              <p>
-                 hello {props.name} umur kamu adalah {props.age}
+                 hello {propss.name} umur kamu adalah {propss.age}
+                 {propss.children}
              </p>
         </div>
     );
