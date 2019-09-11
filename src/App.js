@@ -4,7 +4,19 @@ import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
 
-function App() {
+class App extends Component() {
+  // state cannot be use inside a function componen
+  // state object must be used inside a class componen
+  // a functional uses prop.xxxx
+  // and a class uses this.state.xxx
+  state={
+    datas:[
+      {name:'zakky',age:21},
+      {name:'andi',age:22},
+      {name:'budis',age:25}
+    ]
+  }
+  render(){
   return (
     <div className="App">
       {/* <header className="App-header">
@@ -21,11 +33,21 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <Person name="zakky" age="21"> my hobbi is<span className="warna" > coding</span></Person>
+
+      
+
+      {/* props */}
+      {/* <Person name="zakky" age="21"> my hobbi is<span className="warna" > coding</span></Person>
       <Person name="andi" age="22" > my hobby adalah:reading</Person>
-      <Person name="budi" age="23"/>
+      <Person name="budi" age="23"/> */}
+
+      {/* state */}
+      <Person name={this.datas[0].name} age={this.datas[0].age}> my hobbi is<span className="warna" > coding</span></Person>
+      <Person name={this.datas[1].name} age={this.datas[1].name} > my hobby adalah:reading</Person>
+      <Person name={this.datas[2].name} age={this.datas[2].name}/>
+
      
     </div>
-  );
+  )};
 }
 export default App;
