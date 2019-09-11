@@ -7,7 +7,7 @@ import Person from './Person/Person';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -20,9 +20,11 @@ function App() {
           >
           Learn React
         </a>
-      </header>
-      <Person />
-      <Person />
+      </header> */}
+      <Person name="zakky" age="21"/>
+      <Person name="andi" age="22" > my hobby adalah:reading</Person>
+      <Person name="budi" age="23"/>
+     
     </div>
   );
 }
