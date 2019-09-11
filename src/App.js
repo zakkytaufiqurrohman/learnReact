@@ -1,6 +1,9 @@
-import React from 'react';
+// import React from 'react';
+import React,{Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Person from './Person/Person';
+
 
 function App() {
   return (
@@ -19,8 +22,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <Person />
+     
     </div>
   );
 }
-
 export default App;
