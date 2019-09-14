@@ -1,25 +1,20 @@
 // import React from 'react';
-import React,{useState} from 'react';
+import React,{Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
+import Timer from './Person/Timer'
+class App extends Component {
 
-const App =props => {
-
-  const [data,setdata]= useState({
-      datas:[
-        {name:'zakky',age:21},
-        {name:'andi',age:22},
-        {name:'budis',age:25}
-      ],
-      // other: 'ini other yang di replace oleh data baru jika other tdk di definisikan'
-  });
-  // karena sifatnya mereplace all variable di datas maka gunakan code ini
-  const [otherdata,setOtherData]=useState('ini data other tidak ke replace data baru');
- 
-  console.log(data,otherdata);
-  const swicthNameHandler = () => {
-      setdata( {
+  state={
+    datas:[
+      {name:'zakky',age:21},
+      {name:'andi',age:22},
+      {name:'budis',age:25}
+    ],
+  }
+  swicthNameHandler = () => {
+      this.setState( {
         datas:[
           {name:'nama ini setelah di rubah',age:21},
           {name:'change name',age:22},
@@ -28,7 +23,7 @@ const App =props => {
       }
       )
   }
-  
+  render(){
   return (
     <div className="App">
       {/* props */}
@@ -36,12 +31,16 @@ const App =props => {
       <Person name="andi" age="22" > my hobby adalah:reading</Person>
       <Person name="budi" age="23"/> */}
 
-      <button onClick={swicthNameHandler}>click me</button>
+      <button onClick={this.swicthNameHandler}>click me</button>
       {/* state */}
-      <Person name={data.datas[0].name} age={data.datas[0].age}> my hobbi is<span className="warna" > coding</span></Person>
-      <Person name={data.datas[1].name} age={data.datas[1].name} > my hobby adalah:reading</Person>
-      <Person name={data.datas[2].name} age={data.otherState} />
+      <Person name={this.state.datas[0].name} age={this.state.datas[0].age}> my hobbi is<span className="warna" > coding</span></Person>
+      <Person name={this.state.datas[1].name} age={this.state.datas[1].name} > my hobby adalah:reading</Person>
+      <Person name={this.state.datas[2].name} age={this.state.otherState} />
+      <Timer mulai={0}/>
     </div>
-  )};
+  )}
+
+
+};
 
 export default App;
