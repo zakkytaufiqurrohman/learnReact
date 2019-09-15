@@ -27,12 +27,18 @@ class App extends Component {
     this.setState({
       datas:[
         {name:'zakky',age:21},
-        {name:'change name',age:22},
+        {name:this.state.datas[1].name,age:22},
         {name:event.target.value,age:25}
       ]
     })
   }
   render(){
+
+    const css={
+      backgroundColor:'red',
+      padding:'8px',
+      cursor:'pointer'
+    }
   return (
     <div className="App">
       {/* props */}
@@ -40,7 +46,7 @@ class App extends Component {
       <Person name="andi" age="22" > my hobby adalah:reading</Person>
       <Person name="budi" age="23"/> */}
 
-      <button onClick={this.swicthNameHandler.bind(this,"paijo")}>click me</button>
+      <button style={css} onClick={this.swicthNameHandler.bind(this,"paijo")}>click me</button>
       {/* state */}
       <Person name={this.state.datas[0].name} age={this.state.datas[0].age}> my hobbi is<span className="warna" > coding</span></Person>
       <Person name={this.state.datas[1].name} age={this.state.datas[1].name} > my hobby adalah:reading</Person>
