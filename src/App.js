@@ -29,9 +29,18 @@ class App extends Component {
         {name:'zakky',age:21},
         {name:this.state.datas[1].name,age:22},
         {name:event.target.value,age:25}
-      ]
+      ],
+      status:false,
     })
   }
+  showHide =()=>{
+      this.setState({
+          status:!this.state.status,
+      })
+  }
+
+  
+
   render(){
 
     const css={
@@ -39,23 +48,38 @@ class App extends Component {
       padding:'8px',
       cursor:'pointer'
     }
-  return (
+    // 
+    var Show =null;
+
+    if(this.state.status){
+      Show=(<div>
+        <Person name={this.state.datas[0].name} age={this.state.datas[0].age}> my hobbi is<span className="warna" > coding</span></Person>
+        <Person name={this.state.datas[1].name} age={this.state.datas[1].name} > my hobby adalah:reading</Person>
+        <Person 
+        name={this.state.datas[2].name} 
+        age={this.state.status}
+        change={this.changeHandler}
+        />
+        <Timer mulai={0}/>
+      </div>);
+    }
+   
+
+    return (
+    
     <div className="App">
+
+     
       {/* props */}
       {/* <Person name="zakky" age="21"> my hobbi is<span className="warna" > coding</span></Person>
       <Person name="andi" age="22" > my hobby adalah:reading</Person>
       <Person name="budi" age="23"/> */}
-
+      <button onClick={this.showHide}>show hide</button>
       <button style={css} onClick={this.swicthNameHandler.bind(this,"paijo")}>click me</button>
       {/* state */}
-      <Person name={this.state.datas[0].name} age={this.state.datas[0].age}> my hobbi is<span className="warna" > coding</span></Person>
-      <Person name={this.state.datas[1].name} age={this.state.datas[1].name} > my hobby adalah:reading</Person>
-      <Person 
-        name={this.state.datas[2].name} 
-        age={this.state.otherState}
-        change={this.changeHandler}
-      />
-      <Timer mulai={0}/>
+
+      {Show}
+     
     </div>
   )}
 
