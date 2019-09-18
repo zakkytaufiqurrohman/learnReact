@@ -6,8 +6,8 @@ const Person = (props) =>{
     return (
         <div className="Person">
              {/* <p>hello ini adalah nilai random {Math.floor(Math.random() * 20)}</p> */}
-             <p>
-                 hello {props.name} umur kamu adalah {props.age}
+             <p onClick={props.click}>
+                 hello  {props.name} umur kamu adalah {props.age}
                  {props.children}
              </p>
             <span className="input"><input type="text" onChange={props.change} value={props.name}/></span>

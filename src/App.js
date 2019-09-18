@@ -12,14 +12,15 @@ class App extends Component {
       {name:'andi',age:22},
       {name:'budis',age:25}
     ],
+    status:false,
   }
   swicthNameHandler = (newName) => {
-      this.setState( {
+      this.setState({
         datas:[
           {name:newName,age:21},
           {name:'change name',age:22},
           {name:'budis',age:25}
-        ]
+        ],
       }
       )
   }
@@ -39,8 +40,14 @@ class App extends Component {
       })
   }
 
-  
+  deletePerson = (index)=>{
+      const orang=this.state.datas;
+      orang.splice(index,1);
+      this.setState({
+        datas:orang,
+      })
 
+  }
   render(){
 
     const css={
@@ -53,15 +60,12 @@ class App extends Component {
 
     if(this.state.status){
       Show=(<div>
-        <Person name={this.state.datas[0].name} age={this.state.datas[0].age}> my hobbi is<span className="warna" > coding</span></Person>
-        <Person name={this.state.datas[1].name} age={this.state.datas[1].name} > my hobby adalah:reading</Person>
-        <Person 
-        name={this.state.datas[2].name} 
-        age={this.state.status}
-        change={this.changeHandler}
-        />
-        <Timer mulai={0}/>
-      </div>);
+        {this.state.datas.map( (orang,index)=>{
+          return <Person click={() =>this.deletePerson(index)} name={orang.name} age={orang.age}> my hobbi is<span className="warna" > coding</span></Person>
+        })}
+        {/* <Timer mulai={0}/> */}
+      </div>
+      );
     }
    
 
